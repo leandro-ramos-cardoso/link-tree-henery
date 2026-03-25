@@ -64,13 +64,40 @@ body::before {
   align-items: center;
 }
 
+.avatar-ring {
+  flex-shrink: 0;
+  margin-bottom: 18px;
+  padding: 3px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid rgba(232, 77, 138, 0.55);
+  box-shadow:
+    0 4px 22px rgba(74, 108, 247, 0.12),
+    0 0 0 0 rgba(232, 77, 138, 0.35);
+  animation: avatar-ring-pulse 3.5s ease-in-out infinite;
+}
+@keyframes avatar-ring-pulse {
+  0%, 100% {
+    box-shadow:
+      0 4px 22px rgba(74, 108, 247, 0.12),
+      0 0 0 0 rgba(232, 77, 138, 0.38),
+      0 0 0 0 rgba(249, 208, 228, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 4px 26px rgba(74, 108, 247, 0.14),
+      0 0 0 7px rgba(232, 77, 138, 0.2),
+      0 0 0 18px rgba(232, 77, 138, 0.07);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .avatar-ring { animation: none; }
+}
 .avatar-wrap {
   width: 228px; height: 228px;
   border-radius: 50%;
   background: #fff;
   padding: 4px;
-  box-shadow: 0 4px 20px rgba(74,108,247,0.12);
-  margin-bottom: 18px;
   overflow: hidden;
 }
 .avatar-wrap img {
@@ -1214,8 +1241,10 @@ body::before {
     <div class="logos-section">
       <img src="src/assets/neurocaminhar.png" alt="Neurocaminhar" class="brand-logo" loading="eager" />
     </div>
-      <div class="avatar-wrap">
-        <img src="src/assets/henery.jpg" alt="Dra. Henery Lopes" width="228" height="228" loading="eager" />
+      <div class="avatar-ring">
+        <div class="avatar-wrap">
+          <img src="src/assets/henery.jpg" alt="Dra. Henery Lopes" width="228" height="228" loading="eager" />
+        </div>
       </div>
       <div class="hero-name">Henery Lopes</div>
       <div class="hero-authority">
